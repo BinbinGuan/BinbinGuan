@@ -1,0 +1,24 @@
+title: 主机计费信息接口
+baseUri: /api/v1/guan/test
+funcCode: F_GUAN_TEST
+author: GuanBin
+version: v1.0
+
+/{id}:
+  get:
+    description: 根据id查询计费信息
+    funcOperCode: O_GUAN_TEST_GET
+    funcName: queryById
+
+  delete:
+    description: 删除计费信息
+    funcOperCode: O_GUAN_TEST_DELETE
+    funcName: delete
+
+
+/all:
+  get:
+    description: 查询所有主机计费信息
+    funcOperCode: O_GUAN_TEST_GET
+    funcName: queryAll
+

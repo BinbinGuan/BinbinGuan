@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="common-check" default="validate-project-properties" basedir=".">
+
+    <available file="ant.properties" property="ant.properties.present" />
+
+    <target name="ant-file-not-present" unless="ant.properties.present">
+        <fail>请添加ant.properties到当前目录</fail>
+    </target>
+
+    <!-- properties for directory -->
+    <property file="ant.properties" />
+
+    <!-- 判断属性文件是否存在 -->
+    <target name="validate-project-properties" depends="ant-file-not-present" >
+        <echo message="工程路径：${project.dir}" />
+        <condition property="project-dir-present">
+            <isset property="project.dir"/>
+        </condition>
+
+        <antcall target="project-dir-not-exist"></antcall>
+
+    </target>
+
+    <target name="project-dir-not-exist" unless="project-dir-present">
+        <fail>
+            请在ant.properties文件添加project.dir属性，属性值idcos-bpm工程的根目录,例如
+            project.dir=/Users/yanlv/work/idcos-bpm
+        </fail>
+    </target>
+
+
+    <target name="validate-codegen-lib" if="project-dir-present">
+        <property name="codegen.lib" value="${user.home}/.m2/repository/com/idcos/common/common-codegen/1.0.0-SNAPSHOT/common-codegen-1.0.0-SNAPSHOT.jar" />
+        <available file="${codegen.lib}" property="codegen.lib.present" />
+        <antcall target="compile"></antcall>
+    </target>
+
+    <target name="compile" unless="codegen.lib.present">
+        <exec executable="mvn">
+            <arg value="package" />
+            <arg value="-Dmaven.test.skip=true" />
+        </exec>
+    </target>
+
+
+
+</project>

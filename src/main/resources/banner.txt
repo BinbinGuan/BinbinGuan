@@ -1,0 +1,8 @@
+ ${AnsiColor.BRIGHT_YELLOW}    ____                    ${AnsiColor.BRIGHT_RED}   ____  _       ____  _
+ ${AnsiColor.BRIGHT_YELLOW}   / ___|_   _  __ _ _ __   ${AnsiColor.BRIGHT_RED}  | __ )(_)_ __ | __ )(_)_ __
+ ${AnsiColor.BRIGHT_YELLOW}  | |  _| | | |/ _` | '_ \  ${AnsiColor.BRIGHT_RED}  |  _ \| | '_ \|  _ \| | '_ \
+ ${AnsiColor.BRIGHT_YELLOW}  | |_| | |_| | (_| | | | | ${AnsiColor.BRIGHT_RED}  | |_) | | | | | |_) | | | | |
+ ${AnsiColor.BRIGHT_YELLOW}   \____|\__,_|\__,_|_| |_| ${AnsiColor.BRIGHT_RED}  |____/|_|_| |_|____/|_|_| |_|  server v1.0
+ ${AnsiColor.BRIGHT_YELLOW}                            ${AnsiColor.BRIGHT_RED}
+
+

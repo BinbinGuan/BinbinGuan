@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="cloud-controllergen" default="project-middlegen" basedir=".">
+
+    <property name="appname" value="automate" />
+
+    <property environment="env"/>
+    <property file="ant.properties" />
+
+    <!-- properties for middlegen plugin -->
+    <property name="middlegen.templates" value="${basedir}/template/controller" />
+    <property name="middlegen.config.file" value="${basedir}/controller-config.xml" />
+    <property name="dependency-libs" value="${codegen.dir}/dependency-libs" />
+    <property name="codegen.lib" value="${user.home}/.m2/repository/com/idcos/common/common-codegen/1.0.1-SNAPSHOT/common-codegen-1.0.1-SNAPSHOT.jar"/>
+
+
+    <target name="project-middlegen">
+        <ant antfile="common-check.xml" />
+        <antcall target="middlegen"/>
+    </target>
+
+
+    <property name="dir.lib" value="${dependency-libs}" />
+    <property name="dir.app" value="${project.dir}" />
+    <property name="middlegen.destination" value="${dir.app}/src/main" />
+
+
+    <property name="middlegen.destination" value="${dir.deploy}" />
+
+    <!-- classpath -->
+    <path id="classpath.main">
+        <pathelement path="${codegen.lib}" />
+        <fileset dir="${dir.lib}">
+            <include name="*.jar" />
+        </fileset>
+    </path>
+
+    <!-- =================================================================== -->
+    <!-- Run Middlegen                                                       -->
+    <!-- =================================================================== -->
+    <target name="middlegen" description="">
+
+        <taskdef name="middlegen" classname="com.idcos.common.codegen.plugin.controller.ControllerTask" classpathref="classpath.main" />
+
+        <input message="请输入controller名字(不带Controller后缀),多个以逗号分隔," addproperty="controllers" />
+
+        <echo message="controller配置文件：${middlegen.config.file}" />
+        <echo message="开始自动生成Controller以及相关的manager,form..." />
+
+        <middlegen configfile="${middlegen.config.file}" controllers="${controllers}" appname="${appname}">
+
+            <controller>
+
+                <!-- 生成Controller对象 -->
+                <fileproducer producerName="controller" overrite="true" destination="${middlegen.destination}/java/#controllerClassPackage#" filename="#controllerClass#.java" />
+
+                <!-- 生成Form对象 -->
+                <fileproducer producerName="form" overrite="true" destination="${middlegen.destination}/java/#formClassPackage#" filename="#formClass#.java" />
+
+                <!-- 生成queryManager对象 -->
+                <fileproducer producerName="queryManager" overrite="true" destination="${middlegen.destination}/java/#queryClassPackage#" filename="#queryClass#.java" />
+
+                <!-- 生成operateManager对象 -->
+                <fileproducer producerName="operateManager" overrite="true" destination="${middlegen.destination}/java/#operateClassPackage#"  filename="#operateClass#.java" />
+
+                <!-- 生成queryManagerImpl对象 -->
+                <fileproducer producerName="queryImplManager" overrite="false" destination="${middlegen.destination}/java/#queryImplClassPackage#"  filename="#queryImplClass#.java" />
+
+                <!-- 生成operateManagerImpl对象 -->
+                <fileproducer producerName="operateImplManager" overrite="false" destination="${middlegen.destination}/java/#operateImplClassPackage#" filename="#operateImplClass#.java" />
+
+                <!-- 生成queryManagerImpl对象 -->
+                <fileproducer producerName="vo" overrite="false" destination="${middlegen.destination}/java/#voClassPackage#"  filename="#voClass#.java" />
+
+                <!-- 生成operateManagerImpl对象 -->
+                <fileproducer producerName="convert" overrite="false" destination="${middlegen.destination}/java/#convertClassPackage#"  filename="#convertClass#.java" />
+
+
+            </controller>
+        </middlegen>
+
+        <echo message="Controller生成已成功!" />
+    </target>
+
+
+    <!-- The default target to use -->
+    <target name="release" depends="middlegen" description="" />
+</project>

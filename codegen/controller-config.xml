@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tables>
+
+    <!-- 基本配置信息 -->
+    <appName>guanbin</appName>
+    <baseControllerPackage>com.idcos.guanbin.web.controller.auto</baseControllerPackage>
+    <baseFormPackage>com.idcos.guanbin.biz.{module}.form</baseFormPackage>
+    <baseOperateManagerPackage>com.idcos.guanbin.biz.{module}.manager.auto</baseOperateManagerPackage>
+    <baseQueryManagerPackage>com.idcos.guanbin.biz.{module}.manager.auto</baseQueryManagerPackage>
+    <baseManualManagerPackage>com.idcos.guanbin.biz.{module}.manager.manual</baseManualManagerPackage>
+    <baseManagerImplPackage>com.idcos.guanbin.biz.{module}.manager.impl</baseManagerImplPackage>
+    <baseVOConvertPackage>com.idcos.guanbin.biz.{module}.convert</baseVOConvertPackage>
+    <baseVOPackage>com.idcos.guanbin.biz.{module}.vo</baseVOPackage>
+    <baseEntityPackage>com.idcos.guanbin.dal.auto.dataobject</baseEntityPackage>
+
+    <classImportList>
+        <class>org.springframework.stereotype.Controller</class>
+        <class>org.springframework.web.bind.annotation.RequestMapping</class>
+        <class>org.springframework.web.bind.annotation.RequestMethod</class>
+        <class>org.springframework.web.bind.annotation.ResponseBody</class>
+        <class>org.springframework.beans.factory.annotation.Autowired</class>
+        <class>com.idcos.guanbin.common.permisson.OperateAction</class>
+        <class>com.idcos.guanbin.web.common.BaseResultVO</class>
+        <class>com.idcos.guanbin.web.common.JsonResultUtil</class>
+        <class>io.swagger.annotations.ApiOperation</class>
+        <class>io.swagger.annotations.Api</class>
+    </classImportList>
+
+    <!-- 模块信息 -->
+    <!-- raml相关的信息 不需要再额外配置,只需要按模块信息把raml放到对应目录下即可 -->
+    <!-- controller的raml文件名，只需要写前缀，默认系统会加上controller -->
+
+    <module name="guan"/>
+</tables>

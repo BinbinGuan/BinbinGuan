@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tables dao="true">
+
+    <!-- 基本配置信息 -->
+    <appName>gaunbin</appName>
+    <baseEntityPackage>com.idcos.gaunbin.dal.auto.dataobject</baseEntityPackage>
+    <baseRepositoryPackage>com.idcos.gaunbin.dal.auto.dao</baseRepositoryPackage>
+    <baseVoClass>com.idcos.cloud.core.common.BaseVO</baseVoClass>
+    <baseRepositoryClass>com.idcos.cloud.core.dal.common.jpa.BaseRepository</baseRepositoryClass>
+
+    <!-- 模块信息 -->
+    <!-- table相关的信息 不需要再额外配置,只需要按模块信息把xml放到对应目录下即可 -->
+    <module name="guan"/>
+    <!--<module name="price"/>-->
+
+</tables>

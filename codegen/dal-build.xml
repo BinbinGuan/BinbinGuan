@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="cloud-dalgen" default="middlegen" basedir=".">
+
+    <property name="appname" value="automate" />
+    <property environment="env"/>
+
+    <!-- properties for database properties -->
+    <property name="databaseType" value="mysql" />
+    <property name="envname" value="local" />
+    <property name="database.config.file" value="${databaseType}-${envname}-db.properties" />
+    <property name="middlegen.config.file" value="${basedir}/dal-config.xml" />
+    <property file="ant.properties" />
+
+    <property name="dependency-libs" value="${codegen.dir}/dependency-libs" />
+    <!-- properties for class path -->
+    <property name="codegen.lib" value="${user.home}/.m2/repository/com/idcos/common/common-codegen/1.0.1-SNAPSHOT/common-codegen-1.0.1-SNAPSHOT.jar" />
+
+    <property name="dir.lib" value="${dependency-libs}" />
+    <property name="dir.app" value="${project.dir}" />
+    <property name="dir.deploy" value="${dir.app}/src/main" />
+    <property name="middlegen.destination" value="${dir.deploy}" />
+    <property name="database.url" value="${database.url}" />
+    <property name="database.user" value="${database.user}" />
+    <property name="database.password" value="${database.password}" />
+    <property name="database.schema" value="${database.schema}" />
+    <property name="database.catalog" value="${database.catalog}" />
+    <property name="database.driver" value="${database.driver}" />
+
+    <target name="project-middlegen">
+        <ant antfile="common-check.xml" />
+        <antcall target="middlegen"/>
+    </target>
+
+    <!-- classpath -->
+    <path id="classpath.main">
+        <pathelement path="${codegen.lib}"/>
+        <fileset dir="${dir.lib}">
+            <include name="*.jar" />
+        </fileset>
+    </path>
+
+    <!-- =================================================================== -->
+    <!-- Run Middlegen                                                       -->
+    <!-- =================================================================== -->
+    <target name="middlegen" description="">
+
+        <taskdef name="middlegen" classname="com.idcos.common.codegen.plugin.jpa.JpaTask" classpathref="classpath.main" />
+
+        <input message="请输入目标表名,多表以逗号分隔," addproperty="tabs" />
+
+        <echo message="DAL配置文件：${middlegen.config.file}." />
+        <echo message="开始自动生成DAL..." />
+
+        <mkdir dir="${middlegen.destination}" />
+
+        <middlegen
+                configfile="${middlegen.config.file}"
+                tabs="${tabs}"
+                appname="${appname}"
+                databaseUrl="${database.url}"
+                databaseUser="${database.user}"
+                databasePassword="${database.password}"
+                databaseCatalog="${database.catalog}"
+                databaseDriver="${database.driver}"
+        >
+            <jpa>
+                <!-- 生成Entity对象 -->
+                <fileproducer producerName="entity" overrite="true" destination="${middlegen.destination}/java/#entityPackagePath#" filename="#entityName#DO.java" />
+                <!-- 生成Repository接口 -->
+                <fileproducer producerName="repository"  overrite="true"  destination="${middlegen.destination}/java/#repositoryPackagePath#"  filename="#entityName#DAO.java" />
+            </jpa>
+        </middlegen>
+
+        <echo message="DAL生成已成功!" />
+    </target>
+
+
+    <!-- The default target to use -->
+    <target name="release" depends="middlegen" description="" />
+</project>
