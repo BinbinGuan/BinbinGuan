@@ -30,8 +30,19 @@ public class test1 {
 
     @Test
     public void test() {
-        testList();
+        testMap();
     }
+
+    private void testMap(){
+        //TreeMap是按健默认排序的
+        TreeMap<String, Integer> map = new TreeMap<String, Integer>();
+        map.put("b", 8);
+        map.put("a", 3);
+        map.put("m", 5);
+
+        System.out.println(map);
+    }
+
 
     private void test1() {
         String[] a = { "1", "2", "3" };
@@ -183,6 +194,9 @@ public class test1 {
         list.add("a");
         list.add("b");
         System.out.println(list.toString());
+
+//        result |= c.add(element);
     }
+
 
 }
