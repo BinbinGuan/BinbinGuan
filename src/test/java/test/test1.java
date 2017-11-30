@@ -30,7 +30,7 @@ public class test1 {
 
     @Test
     public void test() {
-        testMap();
+        test5();
     }
 
     private void testMap(){
@@ -86,13 +86,12 @@ public class test1 {
         System.out.println(System.currentTimeMillis()/1000L);
         System.out.println(System.currentTimeMillis()/1000L+18000);
 
-        String m="eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1OWRmNTk2MGNkNmFjMzVmNTMxMzViMzEiLCJ1c2VyTmFtZSI6ImFkbWluIiwidXNlcklkIjoiNTlkZjU5NjBjZDZhYzM1ZjUzMTM1YjMxIiwibmFtZUNOIjoi566h55CG5ZGYIiwibG9naW5OYW1lIjoiYWRtaW4iLCJ0ZW5hbnRJZCI6ImRlZmF1bHQiLCJ0aW1lb3V0IjoyNDAwMCwiZXhwIjoyNTE2Njg0NDAwLCJ0ZW5hbnROYW1l" +
-                "Ijoi566h55CG56ef5oi3In0._0bZJnIUWFkgd_SfPeLE99wdf87vXYy3NcENYDvIfV0";
-
+        String m="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1OTU1ODc1NTYsImxvZ2luTmFtZSI6ImFkbWluIiwibmFtZUNOIjoi566h55CG5ZGYIiwidGVuYW50SWQiOiJkZWZhdWx0IiwidGVuYW50TmFtZSI6IueuoeeQhuenn-aItyIsInRpbWVvdXQiOjI0MDAwLCJ1c2VySWQiOiI1OWRmNTk2MGNkNmFjMzVmNTMxMzViMzEiLCJ1c2VyTmFtZSI6ImFkbWluIn0.zc_U0dJ4tj5_R-jvmK5hmkfUNNy-GuelU3QqigUiCtE";
+       String h="eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1OTc5YWMxNWU0YjA2OTQwOTMwMDEyZGUiLCJzZXNzaW9uSUQiOiJlNzc1MjVkMi1lMmM0LTQ5NWItOTEzMy0zOWZjNGE3NmE3MDkiLCJ0eXBlIjoiMSIsImxvY2FsZSI6ImVuX1VTIn0.oedidT-_BNepcMLqCMSbJ-Wp6hNDSIbqhgwNO1kr2TQ";
         String b="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1OTYxNzI2MjcsImxvZ2luTmFtZSI6ImFkbWluIiwibmFtZUNOIjoi566h55CG5ZGYIiwidGVuYW50SWQiOiJkZWZhdWx0IiwidGVuYW50TmFtZSI6IueuoeeQhuenn-aItyIsInRpbWVvdXQiOjI0MDAwLCJ1c2VySWQiOiI1OWRmNTk2MGNkNmFjMzVmNTMxMzViMzEiLCJ1c2VyTmFtZSI6ImFkbWluIn0.xdKU0ykQ5mHvXGAyNiZMcrC8dIle-3Pv5HgXzTRT3IU";
         String a="eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1OWRmNTk2MGNkNmFjMzVmNTMxMzViMzEiLCJ1c2VySWQiOiI1OWRmNTk2MGNkNmFjMzVmNTMxMzViMzEiLCJuYW1lQ04iOiLnrqHnkIblkZgiLCJ0ZW5hbnRJZCI6ImRlZmF1bHQiLCJ0aW1lb3V0IjoyNDAwMCwiZXhwIjoxNTA5Nzk2NzM2NDU1LCJ0ZW5hbnROYW1lIjoi566h55CG56ef5oi3In0.WZ6bdAV4he0TC-ZmW8fHhdC4y9kmvYXKMSGpAk6frb4";
         Claims claims = (Claims) Jwts.parser().setSigningKey("QzQzNjAxMDQtNEJGMC00Q0IyLUEyOTQtOEM2Mzk2RDZGRDk2")
-            .parseClaimsJws(m).getBody();
+            .parseClaimsJws(h).getBody();
         System.out.println(claims);
 
     }
