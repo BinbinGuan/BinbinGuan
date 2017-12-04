@@ -30,7 +30,7 @@ public class test1 {
 
     @Test
     public void test() {
-        test5();
+        testSet();
     }
 
     private void testMap(){
@@ -195,6 +195,15 @@ public class test1 {
         System.out.println(list.toString());
 
 //        result |= c.add(element);
+    }
+
+    private void testSet(){
+        List<String> stringList=new ArrayList<>();
+        List<String> strings=new ArrayList<>();
+        stringList.addAll(strings);
+
+        System.out.println(stringList.size());
+
     }
 
 
