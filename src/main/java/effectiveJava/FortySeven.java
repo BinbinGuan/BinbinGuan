@@ -1,8 +1,6 @@
 package effectiveJava;
 
-import org.thymeleaf.util.ListUtils;
-
-import java.util.*;
+import java.util.Random;
 
 /**
  * @author GuanBin

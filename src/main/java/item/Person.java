@@ -7,7 +7,7 @@ package item;
 public class Person {
 
     public Person(String name, String sex, String age) {
-        this.name = name;
+        this.name = "guanbin";
         this.sex = sex;
         this.age = age;
     }
