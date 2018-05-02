@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<table>
+    <method name="findByMethodName">
+        <param name="methodName"><![CDATA[java.lang.String]]></param>
+        <returnType><![CDATA[DcosProjectDO]]></returnType>
+    </method>
+</table>

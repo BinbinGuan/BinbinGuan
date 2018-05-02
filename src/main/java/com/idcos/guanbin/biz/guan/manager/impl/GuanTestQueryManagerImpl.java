@@ -6,16 +6,17 @@
 
 package com.idcos.guanbin.biz.guan.manager.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.idcos.cloud.biz.common.check.CommonParamtersChecker;
+import com.idcos.cloud.core.common.biz.CommonResult;
 import com.idcos.gaunbin.dal.auto.dao.guan.GuanTestDAO;
 import com.idcos.gaunbin.dal.auto.dataobject.guan.GuanTestDO;
 import com.idcos.guanbin.biz.common.template.BusinessQueryCallBack;
 import com.idcos.guanbin.biz.common.template.BusinessQueryTemplate;
 import com.idcos.guanbin.biz.guan.convert.GuanTestConvert;
-import org.springframework.beans.factory.annotation.Autowired;
-import com.idcos.cloud.core.common.biz.CommonResult;
 import com.idcos.guanbin.biz.guan.manager.auto.GuanTestQueryManager;
-import org.springframework.stereotype.Service;
 
 
 /**
@@ -38,6 +39,28 @@ public class GuanTestQueryManagerImpl implements GuanTestQueryManager {
     private GuanTestConvert guanTestConvert;
 
     @Override
+    public CommonResult<?> getAll() {
+        return businessQueryTemplate.process(new BusinessQueryCallBack<Object>() {
+
+            @Override
+            public Object doQuery() {
+
+                return "测试123456";
+            }
+
+            @Override
+            public void checkParam() {
+
+            }
+        });
+    }
+
+    @Override
+    public CommonResult<?> doError() {
+        return null;
+    }
+
+    @Override
     public CommonResult<?> queryById(final String id) {
 
         return businessQueryTemplate.process(new BusinessQueryCallBack<Object>() {
@@ -56,21 +79,6 @@ public class GuanTestQueryManagerImpl implements GuanTestQueryManager {
 
     }
 
-    @Override
-    public CommonResult<?> queryAll() {
 
-        return businessQueryTemplate.process(new BusinessQueryCallBack<Object>() {
-
-            @Override
-            public Object doQuery() {
-                return null;
-            }
-
-            @Override
-            public void checkParam() {
-            }
-        });
-
-    }
 
 }

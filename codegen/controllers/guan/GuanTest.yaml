@@ -20,5 +20,11 @@ version: v1.0
   get:
     description: 查询所有主机计费信息
     funcOperCode: O_GUAN_TEST_GET
-    funcName: queryAll
+    funcName: getAll
 
+
+/doError:
+  get:
+    description: 异常接口
+    funcOperCode: O_GUAN_TEST_GET
+    funcName: doError

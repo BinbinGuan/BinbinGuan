@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: com.idcos.common:common-base:1.1.0-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/idcos/common/common-base/1.1.0-SNAPSHOT/common-base-1.1.0-20170907.095524-2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/idcos/common/common-base/1.1.0-SNAPSHOT/common-base-1.1.0-20171226.145351-3.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/com/idcos/common/common-base/1.1.0-SNAPSHOT/common-base-1.1.0-20170907.095524-2-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/idcos/common/common-base/1.1.0-SNAPSHOT/common-base-1.1.0-20171226.145351-3-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/com/idcos/common/common-base/1.1.0-SNAPSHOT/common-base-1.1.0-20170907.095524-2-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/idcos/common/common-base/1.1.0-SNAPSHOT/common-base-1.1.0-20171226.145351-3-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

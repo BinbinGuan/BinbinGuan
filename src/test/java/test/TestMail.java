@@ -1,6 +1,7 @@
 package test;
 
 import com.idcos.Application;
+import com.idcos.export.item.MailAuthenticator;
 import com.sun.mail.util.MailSSLSocketFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,11 +40,12 @@ public class TestMail {
         Properties properties = System.getProperties();
         properties.setProperty("mail.smtp.host", host);
         properties.put("mail.smtp.auth", "true");
+
         //腾讯邮箱服务器可以用ssl加密方式
 //        properties.put("mail.smtp.ssl.enable", "true");//设置是否使用ssl安全连接
 //        properties.put("mail.smtp.ssl.socketFactory", sf);
 
-        authenticator = new MailAuthenticator("guanbinbin@idcos.com", "GuanBin123");
+        authenticator = new MailAuthenticator("guanbinbin@idcos.com", " GuanBin123");
 
         Session session = Session.getDefaultInstance(properties, authenticator);
         try {

@@ -24,7 +24,7 @@ public class DalGen {
 
         task.setConfigfile(projectPath + "/codegen/dal-config.xml");
 
-        JpaTask.setTabs("GuanTest");
+        JpaTask.setTabs("DcosLog");
 
         task.createDynamicElement("jpa");
 
